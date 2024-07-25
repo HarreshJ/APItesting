@@ -1,4 +1,5 @@
 import yfinance as yf
+import pandas as pd
 
 # Get data for Apple
 apple = yf.Ticker("AAPL")
@@ -7,4 +8,8 @@ apple = yf.Ticker("AAPL")
 apple_history = apple.history(period="6mo")
 
 # Print the closing prices
-print(apple_history['Close'])
+data = apple_history['Close']
+
+df = pd.DataFrame(data=data)
+
+print(df)
